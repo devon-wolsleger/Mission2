@@ -6,12 +6,12 @@
 namespace InClassPractice
 {
 
-    class DiceRoller
+    class DiceRollSimulator
     {
         static void Main()
         {
             //Variables to hold the information 
-            var rolls = GetRollCount();
+            var rolls = RollCount();
             var totals = new int[13];
 
             //For loop that simulates rolling two dice and counting the total times a specific number was rolled
@@ -23,15 +23,17 @@ namespace InClassPractice
                 totals[total]++;
             }
 
+            //For loop that prints out the percent of each roll and also displays the histogram view
             for (var i = 2; i <= 12; i++)
             {
                 var percentage = (totals[i] / (double)rolls) * 100;
                 Console.WriteLine($"{i}: {percentage:0.00}% {new string('*', (int)percentage)}");
             }
-            Console.Write(Environment.NewLine + "Thank you for rolling with me! Hope you have a great day!" + Environment.NewLine);
+            Console.Write(Environment.NewLine + "Thank you for rolling with me! Hope you have a great day!" + Environment.NewLine + " - Devon out" + Environment.NewLine);
         }
 
-        static int GetRollCount()
+        //Getting input from the user to see how many times to roll the dice
+        static int RollCount()
         {
             Console.Write("Hello and welcome to my dice roll simulator!" + Environment.NewLine + "DICE ROLLING SIMULATION RESULTS"
                 + Environment.NewLine + "Each '*' represents 1 % of the total number of rolls." + Environment.NewLine + Environment.NewLine + "Enter number of rolls: " + Environment.NewLine);
